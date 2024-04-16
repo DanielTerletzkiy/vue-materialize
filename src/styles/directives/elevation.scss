@@ -11,7 +11,7 @@
 
 }
 
-.dark {
+.dark, .light{
   @for $i from 1 through 10 {
     $darkness: $i * 8;
     &.elevation-n#{$i}, .elevation-dark-n#{$i} {
