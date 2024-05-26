@@ -69,13 +69,13 @@ const progress = computed(() => {
     cursor: pointer;
     display: flex;
 
-    //min-height: 36px;
+    min-height: 2.25rem;
 
     border-radius: inherit;
 
     text-transform: uppercase;
     font-weight: 600;
-    font-size: .75rem;
+    font-size: .875rem;
     letter-spacing: 0.08em;
 
     transition-duration: 0.1s;
@@ -201,7 +201,7 @@ const progress = computed(() => {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0 1rem;
         //justify-content: center;
 
         .prefix {

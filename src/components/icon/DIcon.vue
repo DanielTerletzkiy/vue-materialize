@@ -6,7 +6,7 @@ import {Color} from "../../types";
 
 const props = defineProps({
     name: { type: String, required: true },
-    size: { type: Number, default: 26 },
+    size: { type: Number, default: 24 },
     strokeWidth: { type: Number, default: 1.5 },
     color: { type: String as PropType<Color | string>, default: "inherit" },
 });
