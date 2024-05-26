@@ -1,33 +1,33 @@
 <template>
-    <DWrapper
-        ref="wrapper"
-        root-tag="button"
-        :classes="['d-button', size, {filled, block, glow, loading, progress}]"
-        v-bind="{...$props, ...$attrs}"
-        :elevation="typeof $props.glow === 'undefined' && !filled && !flat ? 1 : $props.elevation || 0"
-        :disabled="$props.disabled || loading"
-        @click.capture="$emit('click')"
-    >
+  <DWrapper
+    ref="wrapper"
+    root-tag="button"
+    :classes="['d-button', size, {filled, block, glow, loading, progress}]"
+    v-bind="{...$props, ...$attrs}"
+    :elevation="typeof $props.glow === 'undefined' && !filled && !flat ? 1 : $props.elevation || 0"
+    :disabled="$props.disabled || !!loading"
+    @click.capture="$emit('click')"
+  >
     <span
-        v-ripple
-        class="d-button__content"
+      v-ripple
+      class="d-button__content"
     >
       <span
-          v-if="!!$slots.prefix"
-          class="prefix"
+        v-if="!!$slots.prefix"
+        class="prefix"
       >
-        <slot name="prefix"/>
+        <slot name="prefix" />
       </span>
-      <span class="center"><slot name="default"/></span>
+      <span class="center"><slot name="default" /></span>
       <span
-          v-if="!!$slots.suffix"
-          class="suffix"
+        v-if="!!$slots.suffix"
+        class="suffix"
       >
-        <slot name="suffix"/>
+        <slot name="suffix" />
       </span>
     </span>
-        <slot name="misc"/>
-    </DWrapper>
+    <slot name="misc" />
+  </DWrapper>
 </template>
 
 <script setup lang="ts">
@@ -69,14 +69,14 @@ const progress = computed(() => {
     cursor: pointer;
     display: flex;
 
-    min-height: 36px;
+    //min-height: 36px;
 
     border-radius: inherit;
 
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.875rem;
-    letter-spacing: 0.09em;
+    font-size: .75rem;
+    letter-spacing: 0.08em;
 
     transition-duration: 0.1s;
 
@@ -201,7 +201,7 @@ const progress = computed(() => {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
         //justify-content: center;
 
         .prefix {
@@ -231,7 +231,7 @@ const progress = computed(() => {
         font-size: 1.4rem;
 
         .d-button__content {
-            padding: 10px 1rem;
+            padding: 0.5rem 1rem;
         }
     }
 }

@@ -55,6 +55,7 @@ function onHamburgerClick(e: Event) {
 .d-toolbar {
   position: sticky;
   top: 0;
+  left: 0;
 
   background-color: color-mix(in srgb, var(--sheet-card), transparent 35%);
   backdrop-filter: blur(10px);

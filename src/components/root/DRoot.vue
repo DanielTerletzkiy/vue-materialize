@@ -51,43 +51,43 @@ const {mode, themes, currentTheme} = storeToRefs(themeStore);
 watch([mode, themes], () => {
     setTheme()
 }, {
-  deep: true
+    deep: true
 })
 
 onMounted(() => {
-  setTheme()
+    setTheme()
 })
 
 function setTheme() {
-  if (!wrapper.value) {
-    return;
-  }
+    if (!wrapper.value) {
+        return;
+    }
 
-  for (const key of Object.keys(ThemeColorProperty)) {
-    useSetColor(
-        document.documentElement,
-        currentTheme.value.colors[key as keyof Theme['colors']],
-        ThemeColorProperty[key as keyof typeof ThemeColorProperty],
-    )
-  }
+    for (const key of Object.keys(ThemeColorProperty)) {
+        useSetColor(
+            document.documentElement,
+            currentTheme.value.colors[key as keyof Theme['colors']],
+            ThemeColorProperty[key as keyof typeof ThemeColorProperty],
+        )
+    }
 
-  for (const key of Object.keys(ThemeSheetProperty)) {
-    useSetColor(
-        document.documentElement,
-        currentTheme.value.sheets[key as keyof Theme['sheets']],
-        ThemeSheetProperty[key as keyof typeof ThemeSheetProperty],
-    )
-  }
+    for (const key of Object.keys(ThemeSheetProperty)) {
+        useSetColor(
+            document.documentElement,
+            currentTheme.value.sheets[key as keyof Theme['sheets']],
+            ThemeSheetProperty[key as keyof typeof ThemeSheetProperty],
+        )
+    }
 
-  for (const key of Object.keys(ThemeTextProperty)) {
-    useSetColor(
-        document.documentElement,
-        currentTheme.value.text[key as keyof Theme['text']],
-        ThemeTextProperty[key as keyof typeof ThemeTextProperty],
-    )
-  }
+    for (const key of Object.keys(ThemeTextProperty)) {
+        useSetColor(
+            document.documentElement,
+            currentTheme.value.text[key as keyof Theme['text']],
+            ThemeTextProperty[key as keyof typeof ThemeTextProperty],
+        )
+    }
 
-  document.documentElement.style.setProperty('color-scheme', mode.value)
+    document.documentElement.style.setProperty('color-scheme', mode.value)
 }
 
 </script>
@@ -97,24 +97,25 @@ function setTheme() {
 
 
 .header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  max-height: $toolbarHeight;
-  z-index: 10;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: $toolbarHeight;
+    z-index: 10;
 }
 
 .content {
-  position: relative;
-  display: flex;
+    position: relative;
+    display: flex;
 
-  .navbar {
-    position: sticky;
-    z-index: 9;
-  }
+    .navbar {
+        position: sticky;
+        z-index: 9;
+    }
 
-  .view {
-    flex: 1;
-  }
+    .view {
+        flex: 1;
+    }
 }
 </style>

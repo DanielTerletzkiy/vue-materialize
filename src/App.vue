@@ -112,7 +112,7 @@ const SerialStatesPreset =
     >
       <template #label="{ item }">
         <d-row :color="item.color">
-          <Iconify
+          <d-icon
             :name="item.icon"
             :color="item.color"
           />
@@ -123,7 +123,7 @@ const SerialStatesPreset =
       </template>
       <template #item="{ item }">
         <d-row :color="item.color">
-          <Iconify :name="item.icon" />
+          <d-icon :name="item.icon" />
           <d-card-subtitle>
             {{ item.name }}
           </d-card-subtitle>
@@ -195,58 +195,68 @@ const SerialStatesPreset =
       </d-column>
     </d-row>
 
-    <d-textfield
-      v-model="selected"
-      filled
-      :color="ThemeColorProperty.primary"
-      placeholder="Test"
-      label="Test"
-      select
-      search
-      :items="items"
-    >
-      <template #label="{item}">
-        {{ item.value }}
-      </template>
-      <template #item="{item}">
-        {{ item.value }}
-      </template>
-      <template #empty>
-        empty!!
-      </template>
-    </d-textfield>
+    <d-column gap>
+      <d-textfield
+        v-model="selected"
+        filled
+        :color="ThemeColorProperty.primary"
+        placeholder="Test"
+        label="Test"
+        select
+        search
+        :items="items"
+      >
+        <template #label="{item}">
+          {{ item.value }}
+        </template>
+        <template #item="{item}">
+          {{ item.value }}
+        </template>
+        <template #empty>
+          empty!!
+        </template>
+      </d-textfield>
 
-    <d-textfield
-      filled
-      :color="ThemeColorProperty.primary"
-      label="Test"
-      placeholder="Test"
-    >
-      <template #prefix>
-        <d-icon name="times" />
-      </template>
-    </d-textfield>
-    <d-textfield
-      v-model="test2"
-      filled
-      :color="ThemeColorProperty.primary"
-      label="Test2"
-    >
-      <template #prefix>
-        <d-icon name="times" />
-      </template>
-    </d-textfield>
-    <d-textfield
-      v-model="test2"
-      filled
-      :color="ThemeColorProperty.primary"
-      solo
-      placeholder="Test2"
-    >
-      <template #prefix>
-        <d-icon name="power" />
-      </template>
-    </d-textfield>
+      <d-textfield
+        filled
+        :color="ThemeColorProperty.primary"
+        label="Test"
+        placeholder="Test"
+      >
+        <template #prefix>
+          <d-icon
+            name="line-md:watch-loop"
+            :stroke-width="4"
+          />
+        </template>
+        <template #suffix>
+          <d-icon
+            name="line-md:loading-twotone-loop"
+            :stroke-width="4"
+          />
+        </template>
+      </d-textfield>
+      <d-textfield
+        v-model="test2"
+        filled
+        :color="ThemeColorProperty.primary"
+        label="Test2"
+      >
+        <template #prefix>
+          <d-icon name="devicon:bun" />
+        </template>
+      </d-textfield>
+      <d-textfield
+        filled
+        :color="ThemeColorProperty.primary"
+        solo
+        placeholder="Test2"
+      >
+        <template #prefix>
+          <d-icon name="devicon:bun" />
+        </template>
+      </d-textfield>
+    </d-column>
     <d-row gap>
       <d-image
         :rounded="Rounded.none"
@@ -526,6 +536,9 @@ const SerialStatesPreset =
       <span class="font-size-small">
         This is a test
       </span>
+      <d-card-title>
+        This is a test
+      </d-card-title>
       <d-card-subtitle>
         This is a test
       </d-card-subtitle>

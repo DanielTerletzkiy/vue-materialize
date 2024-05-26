@@ -285,7 +285,7 @@ function removeFocus() {
             opacity: 0.05 !important;
         }
 
-        height: 3.6rem;
+        height: 3rem;
 
         .d-text-field__label {
             height: auto;
@@ -314,7 +314,7 @@ function removeFocus() {
     }
 
     &--solo {
-        height: 3rem !important;
+        height: 2.6rem !important;
 
         .d-text-field__input {
             margin-top: 0 !important;
@@ -327,7 +327,7 @@ function removeFocus() {
     }
 
     &:not(.d-text-field--solo) {
-        height: 3.5rem !important;
+        height: 3.2rem !important;
     }
 
     &.d-text-field--filled.d-text-field--outlined label {

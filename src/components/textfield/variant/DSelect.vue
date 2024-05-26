@@ -38,7 +38,7 @@
     >
     <DIconButton
       size="24"
-      rounded="md"
+      :rounded="Rounded.circle"
       class="d-text-field__input__icon"
       tabindex="-1"
       type="button"
@@ -61,7 +61,7 @@
       :mandatory="mandatory"
       :multiple="false"
       :index-key="indexKey"
-      :color="$props.color"
+      :color="color"
       @update:model-value="onInput"
     >
       <template #item="props">
@@ -77,14 +77,16 @@
 </template>
 
 <script setup lang="ts" generic="T, A">
-const wrapper = ref(null);
-defineExpose({wrapper});
 import {computed, nextTick, onBeforeMount, PropType, ref, watch} from "vue";
 import DSelectMenu from "../../menu/DSelectMenu.vue";
 import DIconButton from "../../button/DIconButton.vue";
 import DIcon from "../../icon/DIcon.vue";
 import {TransitionSlide} from "@morev/vue-transitions";
 import defaultProps from "../../../props/default.props";
+import {Rounded} from "../../../types/Vuelize";
+
+const wrapper = ref(null);
+defineExpose({wrapper});
 
 const emit = defineEmits(['update:modelValue', 'removeFocus', 'focusout', 'focusin'])
 const props = defineProps({

@@ -1,12 +1,11 @@
 <template>
-    <DWrapper
-        ref="wrapper"
-        :classes="['d-column', flexClasses($props), noPadding ? 'pa-0' : 'pa-1']"
-        v-bind="{...$props, ...$attrs}"
-        @click="$emit('click')"
-    >
-        <slot/>
-    </DWrapper>
+  <DWrapper
+    ref="wrapper"
+    :classes="['d-column', flexClasses($props), noPadding ? 'pa-0' : 'pa-1']"
+    v-bind="{...$props, ...$attrs}"
+  >
+    <slot />
+  </DWrapper>
 </template>
 
 <script setup lang="ts">
@@ -32,7 +31,7 @@ defineProps({
     align-items: v-bind(align);
     justify-content: v-bind(justify);
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
 
     :deep(> .d-column) {
         padding: 0;
