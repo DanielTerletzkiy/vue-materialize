@@ -27,7 +27,7 @@ defineProps({
 @import "../../../styles/variables";
 
 .d-card-title {
-  font-size: 36px;
+  font-size: 1.5rem;
   padding: 8px;
   display: flex;
   align-items: center;

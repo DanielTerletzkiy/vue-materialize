@@ -1,23 +1,23 @@
 <template>
-    <component
-        :is="componentTag"
-        ref="wrapper"
-        :role="role"
-        class="vuelize"
-        :href="link"
-        :disabled="disabled"
-        :class="[classes, mode, globalClasses, elevationClasses, glowClasses, blurClasses]"
-        :style="{height, width, ...outline}"
-        @mouseenter="emit('mouseenter')"
-        @mouseleave="emit('mouseleave')"
-    >
-        <slot/>
-    </component>
+  <component
+    :is="componentTag"
+    ref="wrapper"
+    :role="role"
+    class="vuelize"
+    :href="link"
+    :disabled="disabled"
+    :class="[classes, mode, globalClasses, elevationClasses, glowClasses, blurClasses]"
+    :style="{height, width, ...outline}"
+    @mouseenter="emit('mouseenter')"
+    @mouseleave="emit('mouseleave')"
+  >
+    <slot />
+  </component>
 </template>
 
 <script setup lang="ts">
 import {useVuelizeTheme} from "../stores/ThemeStore";
-import {computed, nextTick, onMounted, ref, watch} from "vue";
+import {type Component, computed, nextTick, onMounted, PropType, ref, watch} from "vue";
 import defaultProps from "../props/default.props";
 import {storeToRefs} from "pinia";
 import {useClearColors, useColor, useSetColors} from "../composables/Color.composable";
@@ -33,7 +33,7 @@ const {mode} = storeToRefs(vuelizeTheme)
 
 const props = defineProps({
     classes: {type: Array},
-    rootTag: {type: String},
+    rootTag: {type: Object as PropType<Component|string>},
     role: {type: String},
     ...defaultProps
 })

@@ -11,7 +11,10 @@
       class="d-icon-button__content"
     >
       <slot name="default">
-        <DIcon :name="name" />
+        <DIcon
+          v-if="name"
+          :name="name"
+        />
       </slot>
     </span>
     <slot name="misc" />
@@ -41,6 +44,8 @@ const sizePX = computed(() => `${props.size}px`);
 .d-icon-button {
   height: v-bind(sizePX);
   width: v-bind(sizePX);
+
+  min-width: v-bind(sizePX);
 
   user-select: none;
   position: relative;

@@ -87,7 +87,7 @@ function onClick() {
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     padding: 10px 12px;
 
     pointer-events: all;

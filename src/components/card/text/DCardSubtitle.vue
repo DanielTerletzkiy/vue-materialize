@@ -23,7 +23,7 @@ defineProps({...defaultProps})
 @import "../../../styles/variables";
 
 .d-card-subtitle {
-  font-size: 16px;
+  font-size: 0.8rem;
   padding: 8px;
   display: flex;
   align-items: center;

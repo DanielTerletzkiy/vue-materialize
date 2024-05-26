@@ -81,7 +81,7 @@ const SerialStatesPreset =
         show-hamburger
         @hamburgerClick="navOpen = !navOpen"
       >
-        <d-card-title class="font-size-medium">
+        <d-card-title class="font-size-large">
           Vuelize
         </d-card-title>
       </DToolbar>
@@ -516,6 +516,20 @@ const SerialStatesPreset =
     >
       test
     </d-checkbox>
+    <d-column>
+      <span class="font-size-large">
+        This is a test
+      </span>
+      <span class="font-size-medium">
+        This is a test
+      </span>
+      <span class="font-size-small">
+        This is a test
+      </span>
+      <d-card-subtitle>
+        This is a test
+      </d-card-subtitle>
+    </d-column>
   </DRoot>
 </template>
 
