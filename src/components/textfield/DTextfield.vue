@@ -289,7 +289,7 @@ function removeFocus() {
 
         .d-text-field__label {
             height: auto;
-            top: 1rem;
+            top: 0.85rem;
             font-size: 1.2rem;
         }
 
