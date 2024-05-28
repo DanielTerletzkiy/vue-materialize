@@ -86,8 +86,8 @@ export default {
     showGradient: {type: Boolean, default: true},
     showGrid: {type: Boolean, default: false},
     showLabels: {type: Boolean, default: true},
-    rowSpacing: {type: [Number, String], default: 50},
-    columnSpacing: {type: [String, Number], default: 50},
+    rowSpacing: {type: [Number, String], default: 40},
+    columnSpacing: {type: [String, Number], default: 40},
     rowLines: {type: [String, Number], default: 10},
   },
 

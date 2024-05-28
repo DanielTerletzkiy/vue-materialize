@@ -33,7 +33,7 @@ defineEmits(['click'])
 
 const props = defineProps({
   active: {type: Boolean},
-  size: {type: [String, Number], default: 50},
+  size: {type: [String, Number], default: 40},
   name: {type: String},
   ...defaultProps
 })
