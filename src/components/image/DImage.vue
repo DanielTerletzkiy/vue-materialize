@@ -98,40 +98,41 @@ import DWrapper from "../DWrapper.vue";
 import defaultProps from "../../props/default.props";
 import {BlurAmount} from "../../types";
 import {DColumn, DDialog, DDivider, DIconButton} from "../../ComponentImport";
+import {DCard, DCardTitle, DRow} from "@";
 
 const wrapper = ref(null);
 const dialogImage = ref(null);
 defineExpose({wrapper, dialogImage});
 
 const props = defineProps({
-  src: {type: String, required: true},
-  alt: {type: String, required: true},
-  fit: {type: String, required: false, default: "contain"},
-  ...defaultProps
+    src: {type: String, required: true},
+    alt: {type: String, required: true},
+    fit: {type: String, required: false, default: "contain"},
+    ...defaultProps
 })
 
 const dialogOpen = ref<boolean>(false);
 
 function openDialog() {
-  dialogOpen.value = true;
+    dialogOpen.value = true;
 }
 
 function closeDialog() {
-  dialogOpen.value = false;
+    dialogOpen.value = false;
 }
 
 const zoomLevel = ref<number>(1);
 
 function increaseZoom() {
-  zoomLevel.value += .1;
+    zoomLevel.value += .1;
 }
 
 function decreaseZoom() {
-  zoomLevel.value -= .1;
+    zoomLevel.value -= .1;
 }
 
 function resetZoom() {
-  zoomLevel.value = 1;
+    zoomLevel.value = 1;
 }
 </script>
 
@@ -139,31 +140,32 @@ function resetZoom() {
 @import "../../styles/variables";
 
 .d-image {
-  overflow: hidden;
+    overflow: hidden;
 
-  user-select: none;
-  object-fit: v-bind(fit);
-  background-position: center;
-  width: inherit;
-  height: inherit;
+    user-select: none;
+    object-fit: v-bind(fit);
+    background-position: center;
+    width: inherit;
+    height: inherit;
 
-  &__dialog {
-    &__container {
-      overflow: auto;
+    &__dialog {
+        &__container {
+            overflow: auto;
 
-      &__image {
-        transition: transform .2s;
-        transform: scale(v-bind(zoomLevel));
-        background-position: top left;
-        object-fit: v-bind(fit);
-      }
+            &__image {
+                transform-origin: top left;
+                transition: transform .2s;
+                transform: scale(v-bind(zoomLevel));
+                background-position: top left;
+                object-fit: v-bind(fit);
+            }
+        }
+
+        &__actionbar {
+            position: absolute;
+            bottom: $gap;
+            font-family: monospace;
+        }
     }
-
-    &__actionbar {
-      position: absolute;
-      bottom: $gap;
-      font-family: monospace;
-    }
-  }
 }
 </style>

@@ -24,7 +24,7 @@ import defaultProps from "../../props/default.props";
 
 const props = defineProps({
   src: {type: String},
-  size: {type: [String, Number], default: 50},
+  size: {type: [String, Number], default: 40},
   ...defaultProps
 })
 
