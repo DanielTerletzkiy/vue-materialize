@@ -49,7 +49,7 @@ const itemColor = computed<string>(() => {
 })
 
 const isMultiple = computed(() => {
-  return typeof parentProps.modelValue === 'object'
+  return parentProps.modelValue && Array.isArray(parentProps.modelValue)
 })
 
 const selected = computed(() => {
