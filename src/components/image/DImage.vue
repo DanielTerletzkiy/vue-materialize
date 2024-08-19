@@ -97,8 +97,7 @@ import {ref} from "vue";
 import DWrapper from "../DWrapper.vue";
 import defaultProps from "../../props/default.props";
 import {BlurAmount} from "../../types";
-import {DColumn, DDialog, DDivider, DIconButton} from "../../ComponentImport";
-import {DCard, DCardTitle, DRow} from "@";
+import {DColumn, DDialog, DDivider, DIconButton, DCard, DCardTitle, DRow} from "../../ComponentImport";
 
 const wrapper = ref(null);
 const dialogImage = ref(null);
