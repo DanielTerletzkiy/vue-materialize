@@ -1,38 +1,38 @@
 <template>
-  <div
-    id="root"
-    ref="wrapper"
-    class="d-root"
-    :class="mode"
-  >
-    <header
-      class="header"
-      :class="mode"
-    >
-      <slot name="toolbar" />
-    </header>
     <div
-      class="content"
-      :class="mode"
-    >
-      <aside class="navbar">
-        <slot name="navbar" />
-      </aside>
-      <main
-        class="view"
+        id="root"
+        ref="wrapper"
+        class="d-root"
         :class="mode"
-      >
-        <slot name="default" />
-      </main>
-    </div>
-    <footer
-      class="footer"
-      :class="mode"
     >
-      <slot name="footer" />
-    </footer>
-    <slot name="notifications" />
-  </div>
+        <header
+            class="header"
+            :class="mode"
+        >
+            <slot name="toolbar"/>
+        </header>
+        <div
+            class="content"
+            :class="mode"
+        >
+            <aside class="navbar">
+                <slot name="navbar"/>
+            </aside>
+            <main
+                class="view"
+                :class="mode"
+            >
+                <slot name="default"/>
+            </main>
+        </div>
+        <footer
+            class="footer"
+            :class="mode"
+        >
+            <slot name="footer"/>
+        </footer>
+        <slot name="notifications"/>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -92,9 +92,11 @@ function setTheme() {
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/index";
+</style>
 
+<style scoped lang="scss">
 
 .header {
     position: sticky;
