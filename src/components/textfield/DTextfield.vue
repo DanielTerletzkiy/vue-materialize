@@ -14,44 +14,45 @@
     >
       <slot name="prefix" />
     </div>
-    <component
-      :is="componentType"
-      v-if="componentType !== 'input'"
-      v-bind="{...$props, ...$attrs}"
-      :id="instance && instance.uid"
-      ref="input"
-      class="d-text-field__input"
-      :placeholder="placeholderActive ? placeholder : ' '"
-      :model-value="modelValue"
-      @update:model-value="onInput"
-      @remove-focus="removeFocus"
-      @focusin="selected = true"
-      @focusout="selected = false"
-    >
-      <template
-        #label="props"
+    <suspense v-if="componentType !== 'input'">
+      <component
+        :is="componentType"
+        v-bind="{...$props, ...$attrs}"
+        :id="instance && instance.uid"
+        ref="input"
+        class="d-text-field__input"
+        :placeholder="placeholderActive ? placeholder : ' '"
+        :model-value="modelValue"
+        @update:model-value="onInput"
+        @remove-focus="removeFocus"
+        @focusin="selected = true"
+        @focusout="selected = false"
       >
-        <slot
-          name="label"
-          :item="props.item as A"
-        />
-      </template>
-      <template
-        #item="props"
-      >
-        <slot
-          name="item"
-          :item="props.item as A"
-        />
-      </template>
-      <template
-        #empty
-      >
-        <slot
-          name="empty"
-        />
-      </template>
-    </component>
+        <template
+          #label="props"
+        >
+          <slot
+            name="label"
+            :item="props.item as A"
+          />
+        </template>
+        <template
+          #item="props"
+        >
+          <slot
+            name="item"
+            :item="props.item as A"
+          />
+        </template>
+        <template
+          #empty
+        >
+          <slot
+            name="empty"
+          />
+        </template>
+      </component>
+    </suspense>
     <input
       v-else
       v-bind="{...$props, ...$attrs}"
@@ -88,9 +89,8 @@ const wrapper = ref(null);
 const input = ref<HTMLElement | null>(null);
 defineExpose({wrapper, input});
 
-import DSelect from "./variant/DSelect.vue";
 //import DAutocomplete from "@/components/textfield/variant/Autocomplete.vue";
-import {computed, getCurrentInstance, onMounted, PropType, ref} from "vue";
+import {computed, defineAsyncComponent, getCurrentInstance, onMounted, PropType, ref} from "vue";
 import defaultProps from "../../props/default.props";
 import DWrapper from "../DWrapper.vue";
 
@@ -142,7 +142,9 @@ const classesObject = computed(() => {
 
 const componentType = computed(() => {
     if (props.select) {
-        return DSelect
+        return defineAsyncComponent(() =>
+            import('./variant/DSelect.vue')
+        )
     } else if (props.autocomplete) {
         return 'd-autocomplete'
     } else {
