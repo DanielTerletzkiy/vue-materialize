@@ -27,14 +27,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vuelize.cjs",
-  "module": "./dist/vuelize.es",
+  "module": "./dist/index.vue.js",
   "types": "./dist/vuelize.d.ts",
   "exports": {
     ".": {
       "types": "./dist/vuelize.d.ts",
-      "import": "./dist/vuelize.es",
-      "require": "./dist/vuelize.cjs"
+      "import": "./dist/index.vue.js"
     }
   },
   "dependencies": {
