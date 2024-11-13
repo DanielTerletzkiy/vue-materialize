@@ -12,7 +12,7 @@ function cssLinker() {
         writeBundle(option, bundle) {
             const files = Object.keys(bundle);
 
-            for (const component of files.filter((file) => file.endsWith(".vue.js"))) {
+            for (const component of files.filter((file) => file.endsWith(".vue.js") && !file.includes("index"))) {
                 const outDir = 'dist';
                 const componentPath = resolve(outDir, component);
                 const data = readFileSync(componentPath, {
